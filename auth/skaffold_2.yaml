@@ -1,0 +1,14 @@
+apiVersion: skaffold/v4beta10
+kind: Config
+metadata:
+  name: auth
+build:
+  artifacts:
+    - image: docker.io/sachin954/foodverse
+      buildpacks:
+        builder: gcr.io/buildpacks/builder:v1
+manifests:
+  rawYaml:
+    - infra/deployment.yaml
+    - infra/loadbalancer_service.yaml
+    - infra/service.yaml

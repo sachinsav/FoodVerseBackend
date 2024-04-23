@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: auth-depl
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: auth-ms
+  template:
+    metadata:
+      labels:
+        app: auth-ms
+    spec:
+      containers:
+      - name: auth
+        image: docker.io/sachin954/foodverse
+        ports:
+        - containerPort: 3000 
